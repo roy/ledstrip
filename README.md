@@ -33,6 +33,11 @@ loop do
   sleep .5
 end
 ```
+
+## Current Status
+
+Very much a work in progress, I haven't even tested it on the raspi yet as my strip is currently being shipped to me.
+
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/ledstrip/fork )
