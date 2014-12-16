@@ -1,6 +1,7 @@
 # Ledstrip
 
 So you have a ledstrip? And you have a Raspberry Pi?
+
 Let's combine the two and have some fun with ruby.
 
 ## Installation
@@ -18,8 +19,9 @@ Or install it yourself as:
     $ gem install ledstrip
 
 ## Usage
-
+``` ruby
 strip = Ledstrip::Strip.new(30, Ledstrip::Type::LPD6803.new)
+
 loop do
   30.times do |x|
     strip.leds[x].r = rand(255)
@@ -30,7 +32,7 @@ loop do
   strip.draw
   sleep .5
 end
-
+```
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/ledstrip/fork )
