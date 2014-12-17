@@ -1,17 +1,22 @@
 module Ledstrip
   class Strip
 
-    attr_accessor :leds
+    attr_accessor :leds, :effect
 
-    def initialize(led_count, type)
+    def initialize(led_count, type:)
       @leds = []
       @type = type
 
       init_leds(led_count)
     end
 
-    def draw
+    def tick
+      @leds = @effect.step(@leds)
       @type.draw(@leds)
+    end
+
+    def sleep_time
+      @effect.sleep_time
     end
 
     private

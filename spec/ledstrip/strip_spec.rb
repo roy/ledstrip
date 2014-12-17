@@ -7,7 +7,7 @@ describe Ledstrip::Strip do
 
     it "accepts a type" do
       type = double
-      expect{ Ledstrip::Strip.new(30, type) }.to_not raise_error
+      expect{ Ledstrip::Strip.new(30, type: type) }.to_not raise_error
     end
 
   end
@@ -18,7 +18,7 @@ describe Ledstrip::Strip do
       type = double("type")
       allow(type).to receive(:draw)
 
-      subject = Ledstrip::Strip.new(1, type)
+      subject = Ledstrip::Strip.new(1, type: type)
       subject.draw
 
       expect(type).to have_received(:draw).with(subject.leds)
