@@ -16,8 +16,7 @@ module Ledstrip
       @effect.start
     end
 
-    def tick
-      @leds = @effect.step(@leds)
+    def draw
       @type.draw(@leds)
     end
 
