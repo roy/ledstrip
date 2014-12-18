@@ -10,6 +10,12 @@ module Ledstrip
       init_leds(led_count)
     end
 
+    def set_effect(name, options={})
+      @effect.stop if @effect
+      @effect = Ledstrip::Effects.instantiate(self, name, options) 
+      @effect.start
+    end
+
     def tick
       @leds = @effect.step(@leds)
       @type.draw(@leds)

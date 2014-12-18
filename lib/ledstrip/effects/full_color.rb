@@ -4,9 +4,10 @@ module Ledstrip
 
       def step(leds)
         leds.collect do |led|
-          led.red = @options[:r]
-          led.green = @options[:g]
-          led.blue = @options[:b]
+          led.red = @options["r"].to_i
+          led.green = @options["g"].to_i
+          led.blue = @options["b"].to_i
+
           led
         end
       end
