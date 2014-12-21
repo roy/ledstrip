@@ -11,8 +11,8 @@ module Ledstrip
       end
 
       def write(array)
-        PiPiper::Spi.spidev_out(array)
-        # File.open('/dev/spidev0.0', 'wb'){|f| f.write(array.pack('C*')) }
+        #PiPiper::Spi.spidev_out(array)
+        File.open('/dev/spidev0.0', 'wb'){|f| f.write(array.pack('C*')) }
       end
 
       private
