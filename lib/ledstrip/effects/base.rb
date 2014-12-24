@@ -38,6 +38,7 @@ module Ledstrip
           end
         end
       end
+
     end
   end
 end

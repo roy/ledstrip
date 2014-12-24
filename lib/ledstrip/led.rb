@@ -10,5 +10,6 @@ module Ledstrip
     def red=(value);   @r = value.to_i; end
     def green=(value); @g = value.to_i; end
     def blue=(value);  @b = value.to_i; end
+
   end
 end

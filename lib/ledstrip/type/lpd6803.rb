@@ -1,6 +1,7 @@
 module Ledstrip
   module Type
     class LPD6803
+
       def initialize(order: [:r, :g, :b])
         @order = order
       end
@@ -52,6 +53,7 @@ module Ledstrip
         Array.new(size / 8 + 1, 0)
         # write(Array.new(size, 0))
       end
+
     end
   end
 end
