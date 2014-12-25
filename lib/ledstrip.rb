@@ -6,6 +6,7 @@ require "ledstrip/effects/base"
 require "ledstrip/effects/random"
 require "ledstrip/effects/full_color"
 require "ledstrip/effects/rainbow"
+require "ledstrip/effects/sunrise"
 require "ledstrip/type/terminal"
 require "ledstrip/strip"
 
