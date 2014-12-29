@@ -1,7 +1,7 @@
 require "ledstrip/version"
 require "ledstrip/led"
 require "ledstrip/type/lpd6803"
-require "ledstrip/math"
+require "ledstrip/calculations"
 require "ledstrip/effects"
 require "ledstrip/effects/base"
 require "ledstrip/effects/random"

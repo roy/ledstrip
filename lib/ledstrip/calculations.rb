@@ -1,5 +1,5 @@
 module Ledstrip
-  module Math
+  module Calculations
     def self.kelvin_to_led(kelvin, led)
       # using method described at
       # http://www.tannerhelland.com/4435/convert-temperature-rgb-algorithm-code/
