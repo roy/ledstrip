@@ -5,29 +5,43 @@ module Ledstrip
       def initialize(strip, options = {})
         super
         @start = Time.now
-        @duration = options.fetch(:duration, 20)
+        @duration = options.fetch(:duration, 30)
         @finish = @start + @duration
         @sequence = generate_sequence
         @end_led = Ledstrip::Led.new(r: 255, g: 255, b: 255)
       end
 
-      def pos
+      def position
+        time = Time.now
         pos = time > @finish ? 1 : (time - @start)/@duration
       end
 
       def step(leds)
-        leds_size = leds.size
-        leds = (@sequence[@frame, leds_size] || [])
+        led_size = leds.size
 
-        while leds.size < leds_size
-          leds << @end_led 
+        leds.each_with_index do |led, x|
+          led.off!
+
+          pos = position#(position + (x / led_size)) / 2
+          if pos <= 0.5
+            led.r = pos * 2 * 255
+          elsif pos > 0.5 && pos <= 1
+            led.r = 255
+            led.g = (pos - 0.5) * 2 * 200
+            led.b = (pos - 0.5) * 2 * 50
+          else
+            led.on!
+            led.r = 255
+            led.g = 200
+            led.b = 50
+          end
         end
 
-        leds.reverse
+        leds
       end
 
       def sleep_time
-        0.1
+        2
       end
 
       private

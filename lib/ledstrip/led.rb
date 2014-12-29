@@ -11,5 +11,13 @@ module Ledstrip
     def green=(value); @g = value.to_i; end
     def blue=(value);  @b = value.to_i; end
 
+    def off!
+      @r, @g, @b = 0, 0, 0
+    end
+
+    def on!
+      @r, @g, @b = 255, 255, 255
+    end
+
   end
 end
