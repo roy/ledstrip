@@ -5,7 +5,7 @@ module Ledstrip
       def initialize(strip, options = {})
         super
         @start = Time.now.to_i
-        @duration = options.fetch("duration", 30)
+        @duration = options.fetch("duration", 30).to_i
         @finish = @start + @duration.to_i
       end
 
@@ -16,23 +16,23 @@ module Ledstrip
 
       def step(leds)
         led_size = leds.size
+        leds.each(&:off!)
 
-        leds.each_with_index do |led, x|
-          led.off!
+        pos = position#(position + (x / led_size)) / 2
 
-          pos = position#(position + (x / led_size)) / 2
-          if pos <= 0.5
-            led.r = pos * 2 * 255
-          elsif pos > 0.5 && pos <= 1
-            led.r = 255
-            led.g = (pos - 0.5) * 2 * 200
-            led.b = (pos - 0.5) * 2 * 50
-          else
-            led.on!
-            led.r = 255
-            led.g = 200
-            led.b = 50
+        if pos <= 0.5
+          leds[0,(pos * 2 * led_size).to_i].each do |l|
+            l.r = pos * 2 * 255
           end
+        elsif pos > 0.5 && pos < 1
+          leds.each {|l| l.r = 255 }
+          leds[0,((pos - 0.5) * 2 * led_size).to_i].each do |l|
+            l.r = 255
+            l.g = (pos - 0.5) * 2 * 200
+            l.b = (pos - 0.5) * 2 * 50
+          end
+        else
+          leds.each(&:on!)
         end
 
         leds
