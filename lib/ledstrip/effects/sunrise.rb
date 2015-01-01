@@ -6,7 +6,7 @@ module Ledstrip
         led_size = leds.size
         leds.each(&:off!)
 
-        pos = position#(position + (x / led_size)) / 2
+        pos = position
 
         if pos <= 0.5
           leds[0,(pos * 2 * led_size).to_i].each do |l|
