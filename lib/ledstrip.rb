@@ -10,6 +10,7 @@ require "ledstrip/effects/full_color"
 require "ledstrip/effects/rainbow"
 require "ledstrip/effects/sunrise"
 require "ledstrip/effects/moonlight"
+require "ledstrip/effects/sunset"
 require "ledstrip/type/terminal"
 require "ledstrip/strip"
 
