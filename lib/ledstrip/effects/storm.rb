@@ -13,9 +13,9 @@ module Ledstrip
 
       def set_gray(leds)
         leds.each do |led|
-          led.r = 30
-          led.g = 30
-          led.b = 30
+          led.r = 0
+          led.g = 0
+          led.b = 0
         end
       end
 
@@ -34,14 +34,13 @@ module Ledstrip
       end
       
       def set_rays(leds)
-        first_ray = leds.size / 2 / 2
-        second_ray = leds.size / 2
-        third_ray = leds.size / 2 + (leds.size / 2 / 2)
+        first_ray = (leds.size / 2 / 2) - 1
+        second_ray = (leds.size / 2 + (leds.size / 2 / 2)) + 1
 
-        [first_ray, second_ray, third_ray].each do |i|
-          leds[i].r = 128
-          leds[i].g = 128
-          leds[i].b = 128
+        [first_ray, second_ray].each do |i|
+          leds[i].r = 200
+          leds[i].g = 200
+          leds[i].b = 200
         end
       end
 
